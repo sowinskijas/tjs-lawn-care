@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TJS Lawn Care | Traverse City's Trusted Lawn & Landscaping Experts</title>
+<meta name="description" content="TJS Lawn Care — professional lawn mowing, landscaping, and snow removal serving Traverse City, MI and surrounding areas. Licensed & insured. Call (231) 709-3055.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:     #0a0a0a;
+  --dark:      #111111;
+  --card-bg:   #161616;
+  --green:     #3d9c1a;
+  --green-lt:  #52c41e;
+  --green-dk:  #2b6e12;
+  --white:     #ffffff;
+  --gray:      #aaaaaa;
+  --gray-lt:   #e0e0e0;
+  --border:    #222222;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Open Sans', sans-serif; background: var(--black); color: var(--white); line-height: 1.6; }
+img { display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* ── MEMORIAL BAR ── */
+.memorial-bar {
+  background: #0d1a0a;
+  border-bottom: 1px solid #1e3a14;
+  text-align: center;
+  padding: 8px 20px;
+  font-size: 13px;
+  color: #7dc45a;
+  letter-spacing: 0.04em;
+}
+.memorial-bar span { color: #aaa; margin: 0 6px; }
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10,10,10,0.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid var(--green-dk);
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-logo img {
+  height: 52px;
+  width: auto;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-lt);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--green-lt); }
+.nav-cta {
+  background: var(--green);
+  color: var(--white);
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border-radius: 3px;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.nav-cta:hover { background: var(--green-lt); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.hamburger span { width: 26px; height: 2px; background: var(--white); border-radius: 2px; transition: 0.3s; }
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://static.wixstatic.com/media/7a5b4a_f28fe551b3e2498a917a1c2d9a4ed881~mv2.jpg');
+  background-size: cover;
+  background-position: center top;
+  filter: brightness(0.35);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  padding: 40px 24px;
+}
+.hero-badge {
+  display: inline-block;
+  background: var(--green-dk);
+  color: var(--green-lt);
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 2px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(38px, 6vw, 72px);
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 20px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--green-lt);
+}
+.hero p {
+  font-size: clamp(15px, 2vw, 18px);
+  color: #cccccc;
+  max-width: 600px;
+  margin: 0 auto 36px;
+}
+.hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--green);
+  color: var(--white);
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 16px 36px;
+  border-radius: 3px;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-primary:hover { background: var(--green-lt); transform: translateY(-2px); }
+.btn-outline {
+  border: 2px solid var(--white);
+  color: var(--white);
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 34px;
+  border-radius: 3px;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+.btn-outline:hover { border-color: var(--green-lt); color: var(--green-lt); transform: translateY(-2px); }
+.hero-scroll {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #888;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.hero-scroll::after {
+  content: '';
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, #888, transparent);
+}
+
+/* ── STATS BAR ── */
+.stats-bar {
+  background: var(--green-dk);
+  padding: 20px 32px;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+.stat-item {
+  text-align: center;
+}
+.stat-item strong {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+}
+.stat-item span {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #a8d98a;
+  margin-top: 4px;
+  display: block;
+}
+
+/* ── SECTION COMMONS ── */
+section { padding: 80px 24px; }
+.section-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--green-lt);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.section-sub {
+  color: var(--gray);
+  max-width: 560px;
+  font-size: 15px;
+}
+.section-header { text-align: center; margin-bottom: 56px; }
+.section-header .section-sub { margin: 0 auto; }
+
+.container { max-width: 1160px; margin: 0 auto; }
+
+/* ── SERVICES ── */
+#services { background: var(--dark); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.service-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform 0.3s, border-color 0.3s;
+}
+.service-card:hover { transform: translateY(-6px); border-color: var(--green-dk); }
+.service-card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+.service-card:hover .service-card-img { transform: scale(1.04); }
+.service-card-img-wrap { overflow: hidden; }
+.service-card-body { padding: 28px 24px; }
+.service-card-icon {
+  font-size: 30px;
+  margin-bottom: 12px;
+  display: block;
+}
+.service-card-body h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--green-lt);
+  margin-bottom: 10px;
+}
+.service-card-body p {
+  color: var(--gray);
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+.service-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.service-list li {
+  font-size: 13px;
+  color: var(--gray-lt);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.service-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── WHY CHOOSE US ── */
+#why { background: var(--black); }
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+.why-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--green);
+  border-radius: 4px;
+  padding: 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: background 0.2s;
+}
+.why-card:hover { background: #1a1a1a; }
+.why-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.why-card h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--green-lt);
+  margin-bottom: 8px;
+}
+.why-card p { color: var(--gray); font-size: 14px; line-height: 1.7; }
+
+/* ── AREAS ── */
+#areas { background: var(--dark); }
+.areas-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.areas-img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+.areas-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0;
+}
+.tag {
+  background: #1a2e10;
+  color: var(--green-lt);
+  border: 1px solid var(--green-dk);
+  font-size: 13px;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 2px;
+}
+
+/* ── GALLERY STRIP ── */
+#gallery { background: var(--black); padding: 0; overflow: hidden; }
+.gallery-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.gallery-item:hover img { transform: scale(1.08); }
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-overlay span {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green-lt);
+}
+
+/* ── CTA BAND ── */
+.cta-band {
+  background: linear-gradient(135deg, var(--green-dk) 0%, #1e5a0e 100%);
+  padding: 64px 24px;
+  text-align: center;
+}
+.cta-band h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(26px, 4vw, 44px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+}
+.cta-band p { color: #c2e8a8; font-size: 16px; margin-bottom: 32px; }
+.cta-band .btn-primary { background: var(--white); color: var(--green-dk); }
+.cta-band .btn-primary:hover { background: var(--gray-lt); }
+
+/* ── CONTACT ── */
+#contact { background: var(--dark); }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+.contact-items { display: flex; flex-direction: column; gap: 24px; margin-top: 32px; }
+.contact-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.contact-icon {
+  width: 44px;
+  height: 44px;
+  background: #1a2e10;
+  border: 1px solid var(--green-dk);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.contact-item h4 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-lt);
+  margin-bottom: 4px;
+}
+.contact-item p, .contact-item a {
+  color: var(--gray-lt);
+  font-size: 15px;
+  transition: color 0.2s;
+}
+.contact-item a:hover { color: var(--green-lt); }
+.hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+.hours-box {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--green);
+  border-radius: 4px;
+  padding: 20px;
+}
+.hours-box h4 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green-lt);
+  margin-bottom: 8px;
+}
+.hours-box p { color: var(--gray); font-size: 14px; }
+.hours-box strong { color: var(--white); }
+
+/* ── FOOTER ── */
+footer {
+  background: #050505;
+  border-top: 2px solid var(--green-dk);
+  padding: 48px 24px 24px;
+  text-align: center;
+}
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.footer-logo img { height: 80px; width: auto; }
+.footer-tagline {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green-lt);
+  margin-bottom: 24px;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  list-style: none;
+}
+.footer-links a {
+  font-size: 13px;
+  color: var(--gray);
+  transition: color 0.2s;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.footer-links a:hover { color: var(--green-lt); }
+.footer-divider { border: none; border-top: 1px solid var(--border); margin: 24px auto; max-width: 400px; }
+.footer-memorial {
+  background: #0d1a0a;
+  border: 1px solid #1e3a14;
+  border-radius: 4px;
+  padding: 16px 24px;
+  max-width: 440px;
+  margin: 0 auto 24px;
+}
+.footer-memorial p {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7dc45a;
+  line-height: 1.8;
+}
+.footer-memorial p strong { color: var(--white); display: block; font-size: 15px; margin-bottom: 4px; }
+.footer-copy { color: #555; font-size: 12px; }
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: #0d0d0d;
+    border-top: 1px solid var(--border);
+    padding: 20px 32px;
+    gap: 18px;
+  }
+  .services-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .areas-inner { grid-template-columns: 1fr; }
+  .gallery-strip { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+  .stats-bar { gap: 32px; }
+}
+@media (max-width: 540px) {
+  nav { padding: 0 20px; }
+  .gallery-strip { grid-template-columns: repeat(2, 1fr); }
+  .hours-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- MEMORIAL BAR -->
+<div class="memorial-bar">
+  ✦ Never Be Forgotten &nbsp;<span>|</span>&nbsp; Loving Brother, Great Friend &amp; Great Father &nbsp;<span>|</span>&nbsp; Brandon Smith 6/5/96 – 12/31/21 ✦
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="https://static.wixstatic.com/media/7a5b4a_1c628522dc844df8929acd31f52bc2dd~mv2.png" alt="TJS Lawn Care Logo">
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#areas">Service Area</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:2317093055" class="nav-cta">📞 (231) 709-3055</a>
+  <div class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Traverse City, Michigan</div>
+    <h1>Quality Landscaping &amp; <em>Lawn Care</em> Services</h1>
+    <p>Serving the Traverse City area with professional lawn maintenance, landscaping design, and snow management — residential &amp; commercial.</p>
+    <div class="hero-btns">
+      <a href="tel:2317093055" class="btn-primary">Get a Free Quote</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <strong>10+</strong>
+    <span>Years Experience</span>
+  </div>
+  <div class="stat-item">
+    <strong>100%</strong>
+    <span>Licensed &amp; Insured</span>
+  </div>
+  <div class="stat-item">
+    <strong>3</strong>
+    <span>Core Services</span>
+  </div>
+  <div class="stat-item">
+    <strong>Mon–Sat</strong>
+    <span>7am – 7pm</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-sub">Comprehensive outdoor care for residential and commercial properties throughout northern Michigan.</p>
+    </div>
+    <div class="services-grid">
+
+      <!-- Lawn Mowing -->
+      <div class="service-card">
+        <div class="service-card-img-wrap">
+          <img class="service-card-img"
+            src="https://static.wixstatic.com/media/7a5b4a_fd00e60ab96c420f9644f1267a5ae97c~mv2.jpg"
+            alt="Lawn Mowing Service">
+        </div>
+        <div class="service-card-body">
+          <span class="service-card-icon">🌿</span>
+          <h3>Lawn Mowing</h3>
+          <p>Precise, reliable mowing on a schedule that keeps your lawn healthy and looking its best all season long.</p>
+          <ul class="service-list">
+            <li>Weekly &amp; bi-weekly schedules</li>
+            <li>Edging &amp; trimming included</li>
+            <li>Clipping cleanup</li>
+            <li>Residential &amp; commercial</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Landscaping -->
+      <div class="service-card">
+        <div class="service-card-img-wrap">
+          <img class="service-card-img"
+            src="https://static.wixstatic.com/media/7a5b4a_d7216b741ab4480488a6082f2a286f8b~mv2.jpg"
+            alt="Landscaping Service">
+        </div>
+        <div class="service-card-body">
+          <span class="service-card-icon">🌳</span>
+          <h3>Landscaping</h3>
+          <p>Transform your outdoor space with custom landscaping — from planting and mulching to full garden design.</p>
+          <ul class="service-list">
+            <li>Design &amp; installation</li>
+            <li>Mulching &amp; bed maintenance</li>
+            <li>Spring &amp; fall cleanups</li>
+            <li>Tree &amp; shrub care</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Snow Removal -->
+      <div class="service-card">
+        <div class="service-card-img-wrap">
+          <img class="service-card-img"
+            src="https://static.wixstatic.com/media/7a5b4a_d64df6d1f55d4ed6934452863a8bd601~mv2.jpg"
+            alt="Snow Removal Service">
+        </div>
+        <div class="service-card-body">
+          <span class="service-card-icon">❄️</span>
+          <h3>Snow Removal</h3>
+          <p>Stay safe and accessible all winter with our dependable snow plowing, blowing, and salting services.</p>
+          <ul class="service-list">
+            <li>Driveways &amp; parking lots</li>
+            <li>Walkway &amp; sidewalk clearing</li>
+            <li>Ice control &amp; salting</li>
+            <li>Seasonal contracts available</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Why TJS</div>
+      <h2 class="section-title">Why Choose TJS Lawn Care</h2>
+      <p class="section-sub">We've built our reputation one yard at a time — here's what sets us apart.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="why-icon">🏆</span>
+        <div>
+          <h3>Experience &amp; Expertise</h3>
+          <p>With over a decade in the industry, we have the knowledge and skills to handle any lawn care project with precision and professionalism.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">✅</span>
+        <div>
+          <h3>Licensed &amp; Insured</h3>
+          <p>Rest easy knowing our team is fully licensed and insured, providing you with peace of mind and protection for your property on every job.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">⭐</span>
+        <div>
+          <h3>Outstanding Service</h3>
+          <p>Customer satisfaction is our top priority. We go above and beyond to deliver exceptional service from start to finish, every single time.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">📍</span>
+        <div>
+          <h3>Wide Service Area</h3>
+          <p>We proudly serve Traverse City, Chums Corner, Acme, and surrounding communities — bringing expert lawn care to all of northern Michigan.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS WE SERVE -->
+<section id="areas">
+  <div class="container">
+    <div class="areas-inner">
+      <img class="areas-img"
+        src="https://static.wixstatic.com/media/7a5b4a_748953def98249419a955a4e3abd5aa5~mv2.jpg"
+        alt="TJS Lawn Care service in Traverse City">
+      <div>
+        <div class="section-label">Coverage</div>
+        <h2 class="section-title">Areas We Serve</h2>
+        <p class="section-sub">Based in the Traverse City area, we serve residential and commercial clients across northern Michigan.</p>
+        <div class="areas-tags">
+          <span class="tag">Traverse City</span>
+          <span class="tag">Chums Corner</span>
+          <span class="tag">Acme</span>
+          <span class="tag">Northern Michigan</span>
+          <span class="tag">Surrounding Areas</span>
+        </div>
+        <p style="color: var(--gray); font-size: 14px; margin-bottom: 24px;">Not sure if we cover your area? Give us a call — we're always looking to bring quality lawn care to new communities.</p>
+        <a href="tel:2317093055" class="btn-primary">Call to Check Your Area</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY STRIP -->
+<div id="gallery">
+  <div class="gallery-strip">
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/7a5b4a_748953def98249419a955a4e3abd5aa5~mv2.jpg" alt="Lawn Care">
+      <div class="gallery-overlay"><span>Lawn Care</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/7a5b4a_d7216b741ab4480488a6082f2a286f8b~mv2.jpg" alt="Landscaping">
+      <div class="gallery-overlay"><span>Landscaping</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/7a5b4a_d64df6d1f55d4ed6934452863a8bd601~mv2.jpg" alt="Snow Removal">
+      <div class="gallery-overlay"><span>Snow Removal</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/7a5b4a_3535b3ce16ef458aaab86b4bbfc7c9e9~mv2.jpg" alt="Spring Cleanup">
+      <div class="gallery-overlay"><span>Spring Cleanup</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Ready to Transform Your Outdoor Space?</h2>
+  <p>Contact TJS Lawn Care today for a free consultation — no obligation, no pressure.</p>
+  <a href="tel:2317093055" class="btn-primary">📞 (231) 709-3055</a>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="section-label">Reach Us</div>
+        <h2 class="section-title">Contact Us Today</h2>
+        <p class="section-sub">We're ready to help with your lawn care needs. Reach out by phone or email and we'll get back to you fast.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <h4>Phone</h4>
+              <a href="tel:2317093055">(231) 709-3055</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:tjslawncare22@gmail.com">tjslawncare22@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h4>Service Area</h4>
+              <p>Traverse City, MI &amp; surrounding northern Michigan communities</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Hours</div>
+        <h2 class="section-title" style="font-size: 28px;">Business Hours</h2>
+        <p style="color: var(--gray); font-size: 14px; margin-bottom: 4px;">We're out working hard for our customers.</p>
+        <div class="hours-grid">
+          <div class="hours-box">
+            <h4>🌿 Working Hours</h4>
+            <p><strong>Mon – Sat</strong></p>
+            <p>7:00 a.m. – 7:00 p.m.</p>
+          </div>
+          <div class="hours-box">
+            <h4>📋 Office Hours</h4>
+            <p><strong>Mon – Sat</strong></p>
+            <p>9:00 a.m. – 5:00 p.m.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="https://static.wixstatic.com/media/7a5b4a_1c628522dc844df8929acd31f52bc2dd~mv2.png" alt="TJS Lawn Care">
+  </div>
+  <p class="footer-tagline">Lawn Mowing · Landscaping · Snow Removal</p>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#areas">Service Area</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="tel:2317093055">(231) 709-3055</a></li>
+  </ul>
+  <hr class="footer-divider">
+  <div class="footer-memorial">
+    <p>
+      <strong>Brandon Smith</strong>
+      6/5/96 – 12/31/21<br>
+      Never Be Forgotten · Loving Brother, Great Friend &amp; Great Father
+    </p>
+  </div>
+  <p class="footer-copy">© 2025 TJS Lawn Care · Tyler Smith, CEO · All rights reserved</p>
+</footer>
+
+</body>
+</html>
